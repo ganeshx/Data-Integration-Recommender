@@ -13,7 +13,7 @@ let config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Snowflake Inspector by Hashmap',
+      title: 'Data Integration Recommender by Hashmap',
       hash: true,
       filename: 'bundle.html',
       path: dist_path,

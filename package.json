@@ -1,5 +1,5 @@
 {
-  "name": "snowflake-inspector",
+  "name": "data-integration-recommender",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,23 +10,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hashmapinc/snowflake-inspector.git"
+    "url": "git+https://github.com/ganeshx/data-integration-recommender.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hashmapinc/snowflake-inspector/issues"
+    "url": "https://github.com/ganeshx/data-integration-recommender/issues"
   },
-  "homepage": "https://github.com/hashmapinc/snowflake-inspector#readme",
+  "homepage": "https://github.com/ganeshx/data-integration-recommender#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
-    "jstree": "^3.3.9",
-    "popper.js": "^1.16.1",
-    "vis-data": "^6.5.1",
-    "vis-network": "^7.6.4"
+    "survey-jquery": "^1.7.19"
   },
   "devDependencies": {
     "css-loader": "^3.5.3",
