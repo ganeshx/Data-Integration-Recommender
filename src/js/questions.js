@@ -1,5 +1,6 @@
 const questions = {
   title: 'Managed Extract/Load Tools',
+  completedHtml: '<div id="recommendation"></div>',
   pages: [
     {
       name: 'managed1',
@@ -8,55 +9,58 @@ const questions = {
           type: 'radiogroup',
           name: 'question1',
           title: 'Do you prefer on-premises or cloud-hosted solutions?',
+          isRequired: true,
           choices: [
             {
-              value: 'prem',
+              value: 'item1',
               text: 'On Prem',
             },
             {
-              value: 'cloud',
+              value: 'item2',
               text: 'Cloud',
             },
             {
-              value: 'equal',
+              value: 'item3',
               text: 'No preference',
             },
           ],
         },
         {
           type: 'radiogroup',
-          name: 'question3',
+          name: 'question2',
           title: 'Do you have cloud data sources (Google Analytics, Facebook/Linkedin/etc Ads, Salesforce)',
+          isRequired: true,
           choices: [
             {
-              value: 'yes',
+              value: 'item1',
               text: 'Yes',
             },
             {
-              value: 'no',
+              value: 'item2',
               text: 'No',
             },
             {
-              value: 'equal',
+              value: 'item3',
               text: 'Not sure',
             },
           ],
         },
         {
           type: 'radiogroup',
-          name: 'question2',
+          name: 'question3',
           title: 'Do you have any SAP data sources? ',
+          isRequired: true,
           choices: [
             {
-              value: 'yes',
+              value: 'item1',
               text: 'On Prem',
             },
             {
-              value: 'no',
+              value: 'item2',
               text: 'Cloud',
             },
             {
-              value: 'equal',
+              value: 'item3',
               text: 'No preference',
             },
           ],
@@ -71,34 +75,35 @@ const questions = {
           name: 'question4',
           title:
             'Do you prefer to manage software upgrades yourself or would you prefer a solution that requires no infrastructure management?',
+          isRequired: true,
           choices: [
             {
-              value: 'myself',
+              value: 'item1',
               text: 'Manage myself',
             },
             {
-              value: 'no',
+              value: 'item2',
               text: 'No management',
             },
           ],
-          otherText: 'No management',
         },
         {
           type: 'radiogroup',
           name: 'question5',
           title:
             'Would you rather pay more for a better experience or get the lowest possible price and fill the gaps with manual work?',
+          isRequired: true,
           choices: [
             {
-              value: 'experience',
+              value: 'item1',
               text: 'Best experience',
             },
             {
-              value: 'price',
+              value: 'item2',
               text: 'Lowest price',
             },
             {
-              value: 'equal',
+              value: 'item3',
               text: 'Not sure',
             },
           ],
@@ -107,17 +112,18 @@ const questions = {
           type: 'radiogroup',
           name: 'question6',
           title: 'Are you willing to make a long term commitment?',
+          isRequired: true,
           choices: [
             {
-              value: 'years',
+              value: 'item1',
               text: 'Yeah, 2+ years is fine',
             },
             {
-              value: 'months',
+              value: 'item2',
               text: 'Maybe 12 months after a trial',
             },
             {
-              value: 'm2m',
+              value: 'item3',
               text: 'No, month to month please',
             },
           ],
@@ -132,17 +138,18 @@ const questions = {
           name: 'question7',
           title:
             'Would you prefer a tool that requires additional training and professional services or a tool that is ready to use day 1 with minimal training?',
+          isRequired: true,
           choices: [
             {
-              value: 'simple',
+              value: 'item1',
               text: 'Simple is better!',
             },
             {
-              value: 'training',
+              value: 'item2',
               text: "I'd like a solution that needs a little training and PS",
             },
             {
-              value: 'equal',
+              value: 'item3',
               text: 'Not sure',
             },
           ],
@@ -151,17 +158,18 @@ const questions = {
           type: 'radiogroup',
           name: 'question8',
           title: 'How important is good documentation to you?',
+          isRequired: true,
           choices: [
             {
-              value: 'doc',
+              value: 'item1',
               text: 'I expect great and up to date documentation!',
             },
             {
-              value: 'nodoc',
+              value: 'item2',
               text: "Docs aren't my biggest concern as long as the tool works and I can call someone when it doesn't.",
             },
             {
-              value: 'equal',
+              value: 'item3',
               text: 'Not sure',
             },
           ],
@@ -170,13 +178,14 @@ const questions = {
           type: 'radiogroup',
           name: 'question9',
           title: 'Do you need data transformation functionality in your Extract/Load tool?',
+          isRequired: true,
           choices: [
             {
-              value: 'sure',
+              value: 'item1',
               text: 'Sure do!',
             },
             {
-              value: 'equal',
+              value: 'item2',
               text: "It doesn't really matter.",
             },
           ],
@@ -185,25 +194,48 @@ const questions = {
           type: 'radiogroup',
           name: 'question10',
           title: 'Do you need a tool that can support custom data sources (REST API sources, for example)',
+          isRequired: true,
           choices: [
             {
-              value: 'sure',
+              value: 'item1',
               text: 'Sure do!',
             },
             {
-              value: 'no',
+              value: 'item2',
               text: 'No, I have plenty data engineers or contractors for that.',
             },
             {
-              value: 'equal',
+              value: 'item3',
               text: "It doesn't really matter.",
             },
           ],
         },
       ],
     },
+    {
+      name: 'email',
+      elements: [
+        {
+          type: 'text',
+          name: 'clientEmail',
+          title: 'Your email',
+          isRequired: true,
+          requiredErrorText: 'Please enter your email address to see the Recommendation',
+          validators: [
+            {
+              type: 'email',
+            },
+          ],
+          inputType: 'email',
+          size: 40,
+          maxLength: 300,
+        },
+      ],
+      title: 'Contact Information',
+    },
   ],
   showProgressBar: 'top',
+  checkErrorsMode: 'onComplete',
 };
 
 export { questions };
