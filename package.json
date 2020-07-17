@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/ganeshx/data-integration-recommender#readme",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
-    "survey-jquery": "^1.7.19"
+    "popper.js": "^1.16.1",
+    "survey-jquery": "^1.7.20"
   },
   "devDependencies": {
     "css-loader": "^3.5.3",
