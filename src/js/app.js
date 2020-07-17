@@ -1,5 +1,6 @@
 import { questions } from './questions';
 import * as Survey from 'survey-jquery';
+import { getResults } from './results';
 import 'survey-jquery/survey.min.css';
 
 const init = () => {
@@ -13,6 +14,12 @@ const init = () => {
   // defaultThemeColors['$body-container-background-color'] = '#f8f8f8';
   Survey.StylesManager.applyTheme();
   const survey = new Survey.Model(questions);
+
+  survey.onComplete.add(function (result) {
+    const rankedResult = getResults(result.data);
+    $('#recommendation').text(JSON.stringify(rankedResult, null, 3));
+  });
+
   $('#surveyContainer').Survey({
     model: survey,
   });
