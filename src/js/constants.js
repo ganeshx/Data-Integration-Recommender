@@ -1,4 +1,4 @@
-const managedMatrix = {
+const replicationMatrix = {
   question1: {
     fivetran: {
       item1: -1,
@@ -281,4 +281,16 @@ const managedMatrix = {
   },
 };
 
-export { managedMatrix };
+const allSurveys = [
+  {
+    name: 'Data Replication Tools',
+    id: 'dataReplication',
+    description: 'Details',
+  },
+  {
+    name: 'Cloud Data Warehouses',
+    id: 'cloudWarehouse',
+    description: 'Details',
+  },
+];
+export { replicationMatrix, allSurveys };

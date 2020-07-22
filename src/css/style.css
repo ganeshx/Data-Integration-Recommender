@@ -10,3 +10,9 @@
 .sv_main .sv_body {
   border-top: none;
 }
+.recommended {
+  font-size: xx-large;
+}
+.table-width {
+  width: 50%;
+}

@@ -1,5 +1,8 @@
-const questions = {
-  title: 'Managed Extract/Load Tools',
+const getQuestions = (surveyId) => {
+  if (surveyId === 'dataReplication') return dataReplication;
+};
+const dataReplication = {
+  title: 'Data Replication Tools',
   completedHtml: '<div id="recommendation"></div>',
   pages: [
     {
@@ -53,23 +56,18 @@ const questions = {
           choices: [
             {
               value: 'item1',
-              text: 'On Prem',
+              text: 'Yes',
             },
             {
               value: 'item2',
-              text: 'Cloud',
+              text: 'No',
             },
             {
               value: 'item3',
-              text: 'No preference',
+              text: 'Not Sure',
             },
           ],
         },
-      ],
-    },
-    {
-      name: 'managed2',
-      elements: [
         {
           type: 'radiogroup',
           name: 'question4',
@@ -92,7 +90,6 @@ const questions = {
           name: 'question5',
           title:
             'Would you rather pay more for a better experience or get the lowest possible price and fill the gaps with manual work?',
-          isRequired: true,
           choices: [
             {
               value: 'item1',
@@ -128,17 +125,11 @@ const questions = {
             },
           ],
         },
-      ],
-    },
-    {
-      name: 'managed3',
-      elements: [
         {
           type: 'radiogroup',
           name: 'question7',
           title:
             'Would you prefer a tool that requires additional training and professional services or a tool that is ready to use day 1 with minimal training?',
-          isRequired: true,
           choices: [
             {
               value: 'item1',
@@ -158,7 +149,6 @@ const questions = {
           type: 'radiogroup',
           name: 'question8',
           title: 'How important is good documentation to you?',
-          isRequired: true,
           choices: [
             {
               value: 'item1',
@@ -235,7 +225,8 @@ const questions = {
     },
   ],
   showProgressBar: 'top',
+  progressBarType: 'questions',
   checkErrorsMode: 'onComplete',
 };
 
-export { questions };
+export { getQuestions };
