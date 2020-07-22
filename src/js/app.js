@@ -1,28 +1,35 @@
-import { questions } from './questions';
-import * as Survey from 'survey-jquery';
-import { getResults } from './results';
-import 'survey-jquery/survey.min.css';
+import { renderSurvey } from './survey';
+import { getUrlVars } from './helper';
+import { allSurveys } from './constants';
 
+const queryParams = getUrlVars();
 const init = () => {
-  var defaultThemeColors = Survey.StylesManager.ThemeColors['bootstrap'];
-  // defaultThemeColors['$main-color'] = '#7ff07f';
-  // defaultThemeColors['$main-hover-color'] = '#6fe06f';
-  // defaultThemeColors['$text-color'] = '#4a4a4a';
-  // defaultThemeColors['$header-color'] = '#7ff07f';
-
-  // defaultThemeColors['$header-background-color'] = '#4a4a4a';
-  // defaultThemeColors['$body-container-background-color'] = '#f8f8f8';
-  Survey.StylesManager.applyTheme();
-  const survey = new Survey.Model(questions);
-
-  survey.onComplete.add(function (result) {
-    const rankedResult = getResults(result.data);
-    $('#recommendation').text(JSON.stringify(rankedResult, null, 3));
-  });
-
-  $('#surveyContainer').Survey({
-    model: survey,
-  });
+  queryParams['survey'] ? renderSurvey(queryParams['survey']) : renderHome();
 };
 
+const renderHome = () => {
+  const card = ({ name, description, id }) => `
+
+  <div class="card " style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${name}</h5>
+    <p class="card-text">
+    ${description}  </p>
+    <button id="${id}" class="btn btn-primary">Take the Quiz</button>
+  </div>
+</div>
+`;
+
+  $('#surveyContainer').html(allSurveys.map(card).join(''));
+};
+
+$(document).ready(function () {
+  if (!queryParams['survey']) {
+    allSurveys.map((survey) => {
+      document.getElementById(survey.id).addEventListener('click', () => {
+        window.location.href = window.location.href + '?survey=' + survey.id;
+      });
+    });
+  }
+});
 export { init };
